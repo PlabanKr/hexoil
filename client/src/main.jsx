@@ -1,23 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import LandingPage from "./LandingPage";
+import HigherLevelComp from "./HigherLevelComp";
 import "./index.css";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <LandingPage />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HigherLevelComp />
   </React.StrictMode>
 );
