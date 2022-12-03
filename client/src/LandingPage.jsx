@@ -5,7 +5,7 @@ import ContractArtifact from "../contracts/OilExploration.json";
 import logo from "./assets/logo.png";
 import "./LandingPage.css";
 
-function LandingPage() {
+function LandingPage({ setWalletState }) {
   // World coin states
   const [verified, setVerified] = useState(false);
   // Ethers and Meta Mask states
@@ -52,6 +52,12 @@ function LandingPage() {
           const _signer = _provider.getSigner();
           const _contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, _signer);
           setContract(_contract);
+        })
+        .then(() => {
+          setWalletState({
+            selectedWalletAddress: selectedWalletAddress,
+            contract: contract,
+          });
         })
         .catch((error) => {
           setErrorMessage(error.message);
