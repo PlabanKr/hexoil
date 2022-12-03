@@ -17,7 +17,7 @@ const SECTION = {
   about: "about-us",
 };
 
-function Dashboard() {
+function Dashboard({ walletState }) {
   const [section, setSection] = useState(SECTION.profile);
 
   const renderSections = (sectionName) => {
@@ -25,28 +25,28 @@ function Dashboard() {
       case SECTION.profile:
         return (
           <>
-            <Profile />
+            <Profile walletState={walletState} />
           </>
         );
 
       case SECTION.land:
         return (
           <>
-            <LandInfo />
+            <LandInfo walletState={walletState} />
           </>
         );
 
       case SECTION.submit:
         return (
           <>
-            <SubmitData />
+            <SubmitData walletState={walletState} />
           </>
         );
 
       case SECTION.about:
         return (
           <>
-            <AboutUs />
+            <AboutUs walletState={walletState} />
           </>
         );
     }
