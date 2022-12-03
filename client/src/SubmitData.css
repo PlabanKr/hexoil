@@ -1,0 +1,23 @@
+.submit-data-header {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem 2rem;
+}
+
+.data-container {
+  margin: 0.8rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label-inp {
+  background-color: white;
+  /* border: 0; */
+  /* border-bottom: 1px solid black; */
+}

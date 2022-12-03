@@ -1,0 +1,9 @@
+.land-info-header {
+  text-align: center;
+}
+
+.land-properties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem 2rem;
+}

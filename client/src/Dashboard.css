@@ -1,0 +1,39 @@
+.dash {
+  color: #000000;
+}
+
+.dash-nav {
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; */
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  background: #fffa70;
+}
+
+.dash-main {
+  /* margin-top : 6.5rem; */
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.side-menu {
+  /* position: fixed; */
+  /* top: 0; */
+  background: #fffa70;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu > div {
+  padding: 0.4rem 1.5rem;
+  margin: 1rem 0;
+}
+
+.side-menu > div:hover {
+  cursor: pointer;
+}
