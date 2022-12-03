@@ -21,6 +21,7 @@ contract OilExploration {
     uint256 CSO; // core oil saturation
     uint256 CSW; // core water saturation
     uint256 RHOG; // grain density
+    string NullifierHash;
 
     enum TempStage {
         Normal,
@@ -32,6 +33,14 @@ contract OilExploration {
     constructor() {
         MyAddress == msg.sender;
         Date = block.timestamp;
+    }
+
+    function setnullifierhash(string memory Nullifier_hash) public payable {
+        NullifierHash = Nullifier_hash;
+    }
+
+    function GetNullifierhash() public view returns (string memory) {
+        return NullifierHash;
     }
 
     function GetLocation() public view returns (string memory) {
