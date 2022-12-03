@@ -60,7 +60,7 @@ function LandingPage({ setWalletState }) {
           });
         })
         .catch((error) => {
-          setErrorMessage(error.message);
+          console.error(error.message);
         });
     } else {
       console.log("Need to install MetaMask");
