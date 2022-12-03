@@ -1,5 +1,7 @@
 import { WorldIDWidget } from "@worldcoin/id";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ethers } from "ethers";
 import ABI from "../contracts/OilExploration_ABI.json";
 import ContractArtifact from "../contracts/OilExploration.json";
 import logo from "./assets/logo.png";
@@ -11,6 +13,8 @@ function LandingPage({ setWalletState }) {
   // Ethers and Meta Mask states
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
   const [contract, setContract] = useState(null);
+
+  const navigate = useNavigate();
 
   // World coin verification
   const handleVerification = async (verificationResponse) => {
@@ -52,12 +56,14 @@ function LandingPage({ setWalletState }) {
           const _signer = _provider.getSigner();
           const _contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, _signer);
           setContract(_contract);
+
+          setWalletState({
+            selectedWalletAddress: _selWaAddress,
+            contract: _contract,
+          });
         })
         .then(() => {
-          setWalletState({
-            selectedWalletAddress: selectedWalletAddress,
-            contract: contract,
-          });
+          navigate("/dashboard");
         })
         .catch((error) => {
           console.error(error.message);
@@ -75,7 +81,7 @@ function LandingPage({ setWalletState }) {
           <img src={logo} alt="Logo" />
         </section>
         <section className="world-coin-container">
-          {!verified ? (
+          {verified ? (
             <WorldIDWidget
               actionId="wid_90c20f9fcea5018032f8960046ac8285"
               signal="test_signal_01"
