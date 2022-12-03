@@ -2,25 +2,25 @@
 pragma solidity ^0.8.6;
 
 contract OilExploration {
-    address MyAddress;
-    string Location;
-    uint256 Date;
-    uint256 Temperature;
-    uint256 MeasureTemp;
-    uint256 FixedTemp;
-    uint256 G_D;
-    uint256 EMF;
-    uint256 EMFR;
-    uint256 Conductivity;
-    uint256 EM;
-    uint256 Rad;
-    uint256 Depth;
-    uint256 KH;
-    uint256 KV;
-    uint256 CPOR;
-    uint256 CSO;
-    uint256 CSW;
-    uint256 RHOG;
+    address MyAddress; // wallet address
+    string Location; // excavation area location
+    uint256 Date; // land inspect date
+    uint256 Temperature; // land temp at that time
+    uint256 MeasureTemp; // measured temp at that time
+    uint256 FixedTemp; // fixed temp for work
+    uint256 G_D; // land gravity density
+    uint256 EMF; // land electro magnetic param (earth main)
+    uint256 EMFR; // land electro magnectic rock param
+    uint256 Conductivity; // land conductivity param
+    uint256 EM; // electric conductivity of rock
+    uint256 Rad; // radioactivity of land
+    uint256 Depth; // well depth
+    uint256 KH; // horizontal permeability to air
+    uint256 KV; // veritcal permeability to air
+    uint256 CPOR; // core porosity
+    uint256 CSO; // core oil saturation
+    uint256 CSW; // core water saturation
+    uint256 RHOG; // grain density
 
     enum TempStage {
         Normal,
