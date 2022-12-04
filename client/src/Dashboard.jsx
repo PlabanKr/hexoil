@@ -2,6 +2,7 @@ import { useState } from "react";
 import Profile from "./Profile";
 import LandInfo from "./LandInfo";
 import SubmitData from "./SubmitData";
+import Conference from "./Conference";
 import AboutUs from "./AboutUs";
 import { FaUserCircle } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
@@ -14,6 +15,7 @@ const SECTION = {
   profile: "profile",
   land: "land-info",
   submit: "submit-data",
+  conference: "conference",
   about: "about-us",
 };
 
@@ -40,6 +42,13 @@ function Dashboard({ walletState }) {
         return (
           <>
             <SubmitData walletState={walletState} />
+          </>
+        );
+
+      case SECTION.conference:
+        return (
+          <>
+            <Conference />
           </>
         );
 

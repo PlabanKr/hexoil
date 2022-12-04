@@ -10,6 +10,7 @@ import "./LandingPage.css";
 function LandingPage({ setWalletState }) {
   // World coin states
   const [verified, setVerified] = useState(false);
+  const [nullifier, setNullifier] = useState();
   // Ethers and Meta Mask states
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
   const [contract, setContract] = useState(null);
@@ -19,7 +20,7 @@ function LandingPage({ setWalletState }) {
   // World coin verification
   const handleVerification = async (verificationResponse) => {
     const options = {
-      action_id: "wid_90c20f9fcea5018032f8960046ac8285",
+      action_id: "wid_3d370f79189b72af47f0033f449c96c4",
       signal: "test_signal_01",
       proof: verificationResponse.proof,
       nullifier_hash: verificationResponse.nullifier_hash,
@@ -37,6 +38,8 @@ function LandingPage({ setWalletState }) {
 
     const x = await res.json();
     console.log("Worldcoin response", x);
+
+    setNullifier(x.nullifier_hash);
 
     console.log("Verified!");
     setVerified(true);
@@ -84,9 +87,9 @@ function LandingPage({ setWalletState }) {
           <img src={logo} alt="Logo" />
         </section>
         <section className="world-coin-container">
-          {verified ? (
+          {!nullifier ? (
             <WorldIDWidget
-              actionId="wid_90c20f9fcea5018032f8960046ac8285"
+              actionId="wid_3d370f79189b72af47f0033f449c96c4"
               signal="test_signal_01"
               enableTelemetry
               onSuccess={(verificationResponse) => {
@@ -101,9 +104,24 @@ function LandingPage({ setWalletState }) {
               debug={true}
             />
           ) : (
-            <button id="meta-btn" onClick={handleMetaBtn}>
-              Connect to Meta Mask
-            </button>
+            // <button id="meta-btn" onClick={handleMetaBtn}>
+            //   Connect to Meta Mask
+            // </button>
+            <>
+              <p>Nullifier Hash is {nullifier}</p>
+              <p>
+                This is a higly confidential high security hash key. Use it for your
+                future logins. Please store it safely with you as this cannot be
+                recovered later.
+              </p>
+              <button
+                onClick={() => {
+                  navigate("/dashboard");
+                }}
+              >
+                Goto Dashboard
+              </button>
+            </>
           )}
         </section>
       </main>
