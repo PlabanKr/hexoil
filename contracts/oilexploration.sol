@@ -1,27 +1,27 @@
-//SPDX-License-Identifier: GPL-3.0
+//SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.6;
 
 contract OilExploration {
-    address MyAddress; // wallet address
-    string Location; // excavation area location
-    uint256 Date; // land inspect date
-    uint256 Temperature; // land temp at that time
-    uint256 MeasureTemp; // measured temp at that time
-    uint256 FixedTemp; // fixed temp for work
-    uint256 G_D; // land gravity density
-    uint256 EMF; // land electro magnetic param (earth main)
-    uint256 EMFR; // land electro magnectic rock param
-    uint256 Conductivity; // land conductivity param
-    uint256 EM; // electric conductivity of rock
-    uint256 Rad; // radioactivity of land
-    uint256 Depth; // well depth
-    uint256 KH; // horizontal permeability to air
-    uint256 KV; // veritcal permeability to air
-    uint256 CPOR; // core porosity
-    uint256 CSO; // core oil saturation
-    uint256 CSW; // core water saturation
-    uint256 RHOG; // grain density
-    string NullifierHash;
+    // address MyAddress;
+    string Location;
+    uint256 Date;
+    //uint Temperature;
+    uint256 MeasureTemp;
+    uint256 FixedTemp;
+    uint256 G_D;
+    uint256 EMF;
+    uint256 EMFR;
+    uint256 Conductivity;
+    uint256 EM;
+    uint256 Rad;
+    uint256 Depth;
+    uint256 KH;
+    uint256 KV;
+    uint256 CPOR;
+    uint256 CSO;
+    uint256 CSW;
+    uint256 RHOG;
+    uint256 Nullifierhash;
 
     enum TempStage {
         Normal,
@@ -31,16 +31,20 @@ contract OilExploration {
     TempStage public TempValue;
 
     constructor() {
-        MyAddress == msg.sender;
+        // MyAddress==msg.sender;
         Date = block.timestamp;
     }
 
-    function setnullifierhash(string memory Nullifier_hash) public payable {
-        NullifierHash = Nullifier_hash;
-    }
+    // function GetAddress(address _address) public payable
+    // {
+    //     MyAddress=_address;
+    // }
+    // function GetAddressBalance() public view returns (uint) {
+    //     return MyAddress.balance;
+    // }
 
-    function GetNullifierhash() public view returns (string memory) {
-        return NullifierHash;
+    function GetNullifierhash() public view returns (uint256) {
+        return Nullifierhash;
     }
 
     function GetLocation() public view returns (string memory) {
@@ -61,6 +65,7 @@ contract OilExploration {
 
     function GetMagneticMeasure() public view returns (uint256) {
         return EMF;
+        return EMFR;
     }
 
     function SetMagneticMeasure(uint256 Earth_Main_MF, uint256 Rocks_MF)
@@ -91,6 +96,7 @@ contract OilExploration {
 
     function GetElectricalMeasure() public view returns (uint256) {
         return Conductivity;
+        return EM;
     }
 
     function SetElectricalMeasure(
@@ -119,6 +125,7 @@ contract OilExploration {
 
     function GetPermialbilityMeasure() public view returns (uint256) {
         return KH;
+        return KV;
     }
 
     function SetPermialbilityMeasure(

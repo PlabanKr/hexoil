@@ -44,6 +44,8 @@ function LandingPage({ setWalletState }) {
 
   // Handle Meta mask connection button click
   const CONTRACT_ADDRESS = ContractArtifact.networks["5777"].address;
+  // const CONTRACT_ADDRESS = "0x9E7D972391e460B1856576D91644d1c3Bd46a0bE";
+  console.log(CONTRACT_ADDRESS);
 
   const handleMetaBtn = () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
@@ -61,9 +63,10 @@ function LandingPage({ setWalletState }) {
             selectedWalletAddress: _selWaAddress,
             contract: _contract,
           });
+          console.log(_selWaAddress, _contract);
         })
         .then(() => {
-          navigate("/dashboard");
+          // navigate("/dashboard");
         })
         .catch((error) => {
           console.error(error.message);
