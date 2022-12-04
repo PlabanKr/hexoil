@@ -6,6 +6,7 @@ import Conference from "./Conference";
 import AboutUs from "./AboutUs";
 import { FaUserCircle } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
+import { BsCameraVideoFill } from "react-icons/bs";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { AiOutlineSelect } from "react-icons/ai";
 import logo from "./assets/logo.png";
@@ -79,6 +80,10 @@ function Dashboard({ walletState }) {
           <div onClick={() => setSection(SECTION.submit)}>
             {" "}
             <AiOutlineSelect /> Submit Data
+          </div>
+          <div onClick={() => setSection(SECTION.conference)}>
+            {" "}
+            <BsCameraVideoFill /> Conference
           </div>
           <div onClick={() => setSection(SECTION.about)}>
             {" "}
